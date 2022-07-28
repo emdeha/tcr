@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
-source ./tcr.sh
-
 readonly message="${1:-goal}"
 
 echo "Setting up goal for: '$message'"
 git commit --allow-empty --no-verify -m "$message" > /dev/null 2>&1
-
-tcr &
 
 echo "Run 'git done' when you're finished."

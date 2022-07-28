@@ -15,6 +15,8 @@ function revert() {
   git checkout .
 }
 
-fswatch -1 -o -r src | while read; do
-  git diff --quiet || ( test && commit || revert )
-done
+function tcr() {
+  fswatch -1 -o -r src | while read; do
+    git diff --quiet || ( test && commit || revert )
+  done
+}
