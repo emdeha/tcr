@@ -16,7 +16,9 @@ function revert() {
 }
 
 function tcr() {
-  fswatch -1 -o -r src | while read; do
+  fswatch -1 -o -r src tests | while read; do
     git diff --quiet || ( test && commit || revert )
   done
 }
+
+tcr
